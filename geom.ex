@@ -13,14 +13,13 @@ defmodule Geom do
 	def area({shape, a, b}) do 
 		area(shape, a, b)
 	end
-	defp area(:rectangle, length, width) when length >= 0 and width >= 0 do
-		length * width
-	end
-	defp area(:triangle, base, height) when base >= 0 and height >= 0  do
-		height * base / 2.0
-	end
-	defp area(:ellipse, major, minor) when major >= 0 and minor >= 0 do
-		:math.pi * major * minor
+	defp area(shape, a, b) when a >= 0 and b >= 0 do
+		case shape do
+			:rectangle -> a * b
+			:triangle -> a * b / 2.0
+			:ellipse -> :math.pi * a * b
+			_ -> 0
+		end
 	end
 	defp area(_, _, _) do
 		0
