@@ -10,7 +10,7 @@ defmodule Geom do
 	Calculate the area of a rectangle given width and length.
 	"""	
 	@spec area({atom(), number(), number()}) :: number()
-	def area({shape, a, b}) do 
+	def area({shape, a, b}) do
 		area(shape, a, b)
 	end
 	defp area(shape, a, b) when a >= 0 and b >= 0 do
